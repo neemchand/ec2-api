@@ -59,22 +59,23 @@ User can create new severs on aws ec2 with click of a button.
 
 ## **How it works**
 Steps to Send custom messages: 
-1. User signup 
+1. User sign up 
   - User needs to sign up to the platform.
 
 2. Create ec2 Instance 
-  - Clik on create Instance button in navigation.
+  - Click on create Instance button in navigation.
   - Fill in the form and provide following details for your instance.
     a) Select key-pair name to login to server. 
         -If you do not have a key-pair click on the add keypair button and generate a new key pair
-        -Download the {your-key}.pem file and keep it in safe place so that you can login to the server with this key later.  
+        -Download the {your-key}.pem file and keep it at safe place so that you can login to the server with this key later.  
     b) Select security group.
          -You can create your own customized security group too.
     c)Add Tags.
     
 3. Connect to your server.  
-   - visit dashboard by clicking Home link from navigation.
+   - Visit dashboard by clicking Home link from navigation.
    - Use folowing command to connect to your new server through ssh terminal. 
-      ```ssh -i {key_name}.pem ubuntu@{Instance ip}```
+        > 
+        ssh -i {key_name}.pem ubuntu@{Instance ip}
   
-  In this way each user can send customized slack messages to multiple channels. 
+  In this way each user can create multiple ec2 instances easily and view the status and configurations for each of them. 
