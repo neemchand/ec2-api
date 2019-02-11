@@ -24,8 +24,10 @@
                                 @forelse($available_key_pairs as $key_pair)
                                 <option value="{{$key_pair}}">{{$key_pair}}</option>
                                 @empty
+                                <option value="">Please create a new keypair</option>
                                 @endforelse
                             </select>
+                            <a href="{{url('create-keypair')}}">Create new key pair</a>
                         </div>
                         <div class="form-group">
                             <label for="security_group">Select security group:</label>
@@ -36,6 +38,7 @@
                                 @empty
                                 @endforelse
                             </select>
+                             <a href="{{url('create-securitygroup')}}">Create new Security group</a>
                         </div>
                         <div class="form-group">
                             <label for="tags">Add Tags:</label>

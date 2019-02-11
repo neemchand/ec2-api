@@ -1,69 +1,80 @@
-<p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+## Ec2-api
 
-## About Laravel
+This app is created to list and create new Ec2 instances on aws 
+so that developers do not need to login to aws console and learn about their service setup methods.
+User can create new severs on aws ec2 with click of a button.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as:
+## About Project
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- Language: PHP (^7.1.3)
+- Framework: Laravel ( 5.7.* )
+- Database: PostgreSql
 
-Laravel is accessible, yet powerful, providing tools needed for large, robust applications.
+## How to install project on local
+  
+    Open CLI and run following commands to set up at local:
+   - **Clone the project**
+        > 
+            git clone https://github.com/neemchand/ec2-api.git
 
-## Learning Laravel
+   - **Set permissions**
+       >
+            sudo chmod -R 777 { project-storage-path }
+            sudo chmod -R 777 { project-bootstrap-path }
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of any modern web application framework, making it a breeze to get started learning the framework.
+   - **Go to project directory**
+       >
+            cd ec2-api       
 
-If you're not in the mood to read, [Laracasts](https://laracasts.com) contains over 1100 video tutorials on a range of topics including Laravel, modern PHP, unit testing, JavaScript, and more. Boost the skill level of yourself and your entire team by digging into our comprehensive video library.
+ - **Install the dependencies**    
+ >
+           composer install
+  
 
-## Laravel Sponsors
 
-We would like to extend our thanks to the following sponsors for helping fund on-going Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell):
+## Database installation
+- **How to install postgresql ( Ubuntu )**
+    >
+        sudo apt-get install postgresql postgresql-contrib
+- **Which UI being used to connect to DB**
+    >
+        pgadmin
+- **Create  database**
+    >
+         1. login to pgsql
+          sudo psql -h localhost -U postgres    
+           2. create database utc-time;
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[British Software Development](https://www.britishsoftware.co)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- [UserInsights](https://userinsights.com)
-- [Fragrantica](https://www.fragrantica.com)
-- [SOFTonSOFA](https://softonsofa.com/)
-- [User10](https://user10.com)
-- [Soumettre.fr](https://soumettre.fr/)
-- [CodeBrisk](https://codebrisk.com)
-- [1Forge](https://1forge.com)
-- [TECPRESSO](https://tecpresso.co.jp/)
-- [Runtime Converter](http://runtimeconverter.com/)
-- [WebL'Agence](https://weblagence.com/)
-- [Invoice Ninja](https://www.invoiceninja.com)
-- [iMi digital](https://www.imi-digital.de/)
-- [Earthlink](https://www.earthlink.ro/)
-- [Steadfast Collective](https://steadfastcollective.com/)
-- [We Are The Robots Inc.](https://watr.mx/)
-- [Understand.io](https://www.understand.io/)
+## Post Installation steps
+ - **Run database migrations**
+    >
+        php artisan migrate
 
-## Contributing
+- **Start server**
+    >
+        php artisan serve
+        The API will be running on localhost:8000 now.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
 
-## Security Vulnerabilities
+## **How it works**
+Steps to Send custom messages: 
+1. User signup 
+  - User needs to sign up to the platform.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+2. Create ec2 Instance 
+  - Clik on create Instance button in navigation.
+  - Fill in the form and provide following details for your instance.
+    a) Select key-pair name to login to server. 
+        -If you do not have a key-pair click on the add keypair button and generate a new key pair
+        -Download the {your-key}.pem file and keep it in safe place so that you can login to the server with this key later.  
+    b) Select security group.
+         -You can create your own customized security group too.
+    c)Add Tags.
+    
+3. Connect to your server.  
+   - visit dashboard by clicking Home link from navigation.
+   - Use folowing command to connect to your new server through ssh terminal. 
+      ```ssh -i {key_name}.pem ubuntu@{Instance ip}```
+  
+  In this way each user can send customized slack messages to multiple channels. 
