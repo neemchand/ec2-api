@@ -70,10 +70,9 @@ IAM Groups,roles,users and apply different policies to restrict the access of aw
     - You can see list of all current Instances
     - Click on create new instance button
     - Fill in the form and provide following details for your instance.
-
         a) Select key-pair name to login to server. 
-           -If you do not have a key-pair click on the add keypair button and generate a new key pair
-           -Download the {your-key}.pem file and keep it at safe place so that you can login to the server with this key later.  
+            -If you do not have a key-pair click on the add keypair button and generate a new key pair
+            -Download the {your-key}.pem file and keep it at safe place so that you can login to the server with this key later.  
         b) Select security group.
            -You can create your own customized security group too.
         c)Add Tags.
