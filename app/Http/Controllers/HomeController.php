@@ -24,7 +24,7 @@ class HomeController extends Controller
     public function index()
     {   
         $instance_reservations= (new Ec2Component())->describeInstances()['Reservations'];
-       // echo"<pre>";  print_r($instance_reservations);        die();
+      // echo"<pre>";  print_r($instance_reservations);        die();
         return view('home', compact('instance_reservations'));
     }
 }

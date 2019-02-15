@@ -43,6 +43,7 @@
                             @endforeach
                         </tbody>
                     </table>
+                     <a href="{{url('/create-instance')}}" type="button" class="btn btn-default" >Create new Instance</a>
                 </div>
             </div>
         </div>

@@ -49,8 +49,12 @@
                                 </li>
                             @endif
                         @else
-                        <li>  <a  class="nav-link" href="{{url('/create-instance')}}">
-                                 Create Instance
+                       <li>  <a  class="nav-link" href="{{url('/home')}}">
+                                 EC2-Instances
+                                </a>
+                        </li>
+                        <li>  <a  class="nav-link" href="{{url('/admin/groups')}}">
+                                Iam Groups
                                 </a>
                         </li>
                             <li class="nav-item dropdown">

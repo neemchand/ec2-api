@@ -16,10 +16,11 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
-<!--        <link rel="stylesheet" href="{{ asset('css/common.css') }}">-->
-   
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+      <link rel="stylesheet" href="{{ asset('css/common.css') }}">
+     <meta name="csrf-token" content="{{ csrf_token() }}" />
+     <script type="text/javascript" > var base_url= "<?php echo url('/'); ?>"</script>
     
 </head>
 <body>
@@ -50,8 +51,12 @@
                                 </li>
                             @endif
                         @else
-                         <li>  <a  class="nav-link" href="{{url('/create-instance')}}">
-                                 Create Instance
+                         <li>  <a  class="nav-link" href="{{url('/home')}}">
+                                 EC2-Instances
+                                </a>
+                        </li>
+                        <li>  <a  class="nav-link" href="{{url('/admin/groups')}}">
+                                Iam Role Groups
                                 </a>
                         </li>
                             <li class="nav-item dropdown">
@@ -81,5 +86,12 @@
             @yield('content')
         </main>
     </div>
+    <script
+        src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+    <!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="{{url('/js/global.js')}}"></script>
 </body>
 </html>
