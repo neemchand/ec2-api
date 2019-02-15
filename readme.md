@@ -1,7 +1,7 @@
 
 ## Ec2-api
 
-This app is created to list and create new Ec2 instances/IAM Roles/groups on aws 
+This app is created to list and create new Ec2 instances/IAM Roles/groups on aws by using aws php sdk 
 so that developers do not need to login to aws console and learn about their service setup methods.
 User can create new severs on aws ec2/IAM with click of a button.
 
